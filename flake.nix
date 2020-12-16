@@ -8,6 +8,9 @@
       packages.x86_64-linux = import ./default.nix { inherit pkgs; };
       overlay = final: prev: {
         dotnet2nix = self.packages.x86_64-linux.dotnet2nix;
+        lib = (prev.lib or { }) // {
+          buildDotnet2Nix = prev.callPackage ./lib/dotnet2nix { };
+        };
       };
     };
 }
