@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     export NUGET_PACKAGES=$PWD/.packages
     mkdir -p $NUGET_PACKAGES
     echo "Running dotnet restore"
-    dotnet restore --use-lock-file --locked-mode --source ${nugetSource}
+    dotnet restore --use-lock-file --locked-mode --source ${nugetSource} ${project}
     autoPatchelf $NUGET_PACKAGES
     echo "Running dotnet build"
     dotnet build --no-restore --configuration ${configuration} ${project}
