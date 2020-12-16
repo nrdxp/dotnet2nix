@@ -2,3 +2,4 @@
 bin/
 obj/
 /dotnet2nix.sln.DotSettings.user
+result
